@@ -5,10 +5,10 @@ class QRScannerPage extends StatefulWidget {
   const QRScannerPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _QRScannerPageState();
+  State<StatefulWidget> createState() => QRScannerPageState();
 }
 
-class _QRScannerPageState extends State<QRScannerPage> {
+class QRScannerPageState extends State<QRScannerPage> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -17,20 +17,30 @@ class _QRScannerPageState extends State<QRScannerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text('QR Code Scanner'),
+        title:const Text('QR Code Scanner',style: TextStyle(color: Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold , fontSize: 22)),
+        shadowColor:const Color.fromARGB(255, 249, 23, 23),
       ),
       body: Column(
         children: <Widget>[
-          Expanded(
-            child: QRView(
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated,
+          const SizedBox(height: 100,),
+          Center(
+            child: Container(height: 350,width: 350,
+              child: QRView(
+                key: qrKey,
+                onQRViewCreated: _onQRViewCreated,
+              ),
             ),
           ),
+          const SizedBox(height: 10,),
+          const Center(child:  Text("Scan QR",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),)),
+          const Icon(Icons.copy),
           if (result != null)
-            Text(
-              'QR Code Data: ${result!.code}',
-              style: const TextStyle(fontSize: 20),
+            // const Center(child:  Text("Your Scanned Data",style: TextStyle(fontSize: 10),)),
+            Center(
+              child: Text(
+                  result!.code.toString(),
+                style: const TextStyle(fontSize: 20),
+              ),
             ),
         ],
       ),

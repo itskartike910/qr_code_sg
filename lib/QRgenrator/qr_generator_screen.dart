@@ -1,83 +1,69 @@
-import 'dart:typed_data';
-
+import 'package:custom_qr_generator/custom_qr_generator.dart';
 import 'package:flutter/material.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
-void main() {
-  runApp(const QRCodeGeneratorApp());
+// ignore: must_be_immutable
+class QRCodeGenScreen extends StatefulWidget {
+  String inputText;
+  QRCodeGenScreen({super.key, required this.inputText});
+
+  @override
+  State<StatefulWidget> createState() => QRCodeGenScreenState();
 }
 
-class QRCodeGeneratorApp extends StatelessWidget {
-  const QRCodeGeneratorApp({super.key});
+// ignore: must_be_immutable
+class QRCodeGenScreenState extends State<QRCodeGenScreen> {
+  String txt = "";
+
+  @override
+  void initState() {
+    super.initState();
+    txt = widget.inputText;
+    if (txt.isEmpty) {
+      txt = "Made With ❤️ by Kartik Kumar";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'QR Code Generator',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('QR Code Generator'),
+          title: const Text('QR Code Generator',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22)),
+          shadowColor: const Color.fromARGB(255, 249, 23, 23),
         ),
-        body: const QRCodeGenerator(),
-      ),
-    );
-  }
-}
-
-class QRCodeGenerator extends StatefulWidget {
-  const QRCodeGenerator({super.key});
-
-  @override
-  _QRCodeGeneratorState createState() => _QRCodeGeneratorState();
-}
-
-class _QRCodeGeneratorState extends State<QRCodeGenerator> {
-  final TextEditingController _textController = TextEditingController();
-  String _qrCodeData = "";
-  Uint8List qrImage = Uint8List(8);
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            controller: _textController,
-            decoration: const InputDecoration(
-              labelText: 'Enter String or Link',
-            ),
+        body: Center(
+          child: CustomPaint(
+            painter: QrPainter(
+                data: txt, //input data or url
+                options: const QrOptions(
+                    shapes: QrShapes(
+                        darkPixel: QrPixelShapeRoundCorners(cornerFraction: .5),
+                        frame: QrFrameShapeRoundCorners(cornerFraction: .25),
+                        ball: QrBallShapeRoundCorners(cornerFraction: .25)),
+                    colors: QrColors(
+                        dark: QrColorLinearGradient(colors: [
+                          Color.fromARGB(255, 255, 0, 0),
+                          Color.fromARGB(255, 0, 0, 255)
+                        ], orientation: GradientOrientation.leftDiagonal),
+                        ball: QrColorLinearGradient(colors: [
+                          Color.fromARGB(255, 0, 42, 255),
+                          Color.fromARGB(255, 255, 2, 2)
+                        ], orientation: GradientOrientation.leftDiagonal),
+                        background:
+                            QrColorSolid(Color.fromARGB(255, 215, 252, 255)),
+                        frame: QrColorLinearGradient(colors: [
+                          Color.fromARGB(255, 0, 42, 255),
+                          Color.fromARGB(255, 255, 2, 2)
+                        ], orientation: GradientOrientation.rightDiagonal)))),
+            size: const Size(350, 350),
           ),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                _qrCodeData = _textController.text;
-              });
-            },
-            child: const Text('Generate QR Code'),
-          ),
-          const SizedBox(height: 16),
-          // _qrCodeData.isNotEmpty
-          //     ? Container(
-          //         child: Image.memory(
-          //           QrImage(
-          //             data: _qrCodeData,
-          //             version: QrVersions.auto,
-          //             size: 200.0,
-          //           ), // Convert QR code to bytes
-          //         ),
-          //       )
-          //     : Container(),
-
-          //  Container(
-          //   height: 30,width: 30,
-          //   child:  QrImage(
-          //     data: _qrCodeData,
-          //     version: QrVersions.auto,
-          //     size: 200.0,
-          //   ),
-          //  ): Container(),
-        ],
+        ),
       ),
     );
   }
