@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
           body: Container(
             height: double.infinity,
             width: double.infinity,
-            // color: const Color.fromARGB(255, 171, 246, 250),
+            color: const Color.fromARGB(255, 171, 246, 250),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

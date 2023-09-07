@@ -31,30 +31,38 @@ class QRCodeGenScreenState extends State<QRCodeGenScreen> {
         shadowColor:const Color.fromARGB(255, 249, 23, 23),
       ),
       body: Center(
-        child: CustomPaint(
-          painter: QrPainter(
-              data: txt, //input data or url
-              options: const QrOptions(
-                  shapes: QrShapes(
-                      darkPixel: QrPixelShapeRoundCorners(cornerFraction: .5),
-                      frame: QrFrameShapeRoundCorners(cornerFraction: .25),
-                      ball: QrBallShapeRoundCorners(cornerFraction: .25)),
-                  colors: QrColors(
-                      dark: QrColorLinearGradient(colors: [
-                        Color.fromARGB(255, 255, 0, 0),
-                        Color.fromARGB(255, 0, 0, 255)
-                      ], orientation: GradientOrientation.leftDiagonal),
-                      ball: QrColorLinearGradient(colors: [
-                        Color.fromARGB(255, 0, 42, 255),
-                        Color.fromARGB(255, 255, 2, 2)
-                      ], orientation: GradientOrientation.leftDiagonal),
-                      background:
-                          QrColorSolid(Color.fromARGB(255, 215, 252, 255)),
-                      frame: QrColorLinearGradient(colors: [
-                        Color.fromARGB(255, 0, 42, 255),
-                        Color.fromARGB(255, 255, 2, 2)
-                      ], orientation: GradientOrientation.rightDiagonal)))),
-          size: const Size(350, 350),
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: const Color.fromARGB(255, 171, 246, 250),
+          child: Center(
+            child: CustomPaint(
+              painter: QrPainter(
+                  data: txt, //input data or url
+                  options: const QrOptions(
+                      shapes: QrShapes(
+                          darkPixel: QrPixelShapeRoundCorners(cornerFraction: .5),
+                          frame: QrFrameShapeRoundCorners(cornerFraction: .25),
+                          ball: QrBallShapeRoundCorners(cornerFraction: .25)),
+                      colors: QrColors(
+                          dark: QrColorLinearGradient(colors: [
+                            Color.fromARGB(255, 255, 0, 0),
+                            Color.fromARGB(255, 0, 0, 255)
+                          ], orientation: GradientOrientation.leftDiagonal),
+                          ball: QrColorRadialGradient(colors: [
+                            Color.fromARGB(255, 255, 0, 0),
+                            Color.fromARGB(255, 0, 0, 255)
+                          ], ),
+                          background:
+                              QrColorSolid(Color.fromARGB(255, 255, 242, 217)),
+                          frame: QrColorLinearGradient(colors: [
+                            Color.fromARGB(255, 255, 0, 0),
+                            Color.fromARGB(255, 0, 0, 255)
+                          ], orientation: GradientOrientation.rightDiagonal)
+                          ))),
+              size: const Size(350, 350),
+            ),
+          ),
         ),
       ),
     );

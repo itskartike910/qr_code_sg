@@ -46,52 +46,62 @@ class QRScannerPageState extends State<QRScannerPage> {
                 fontSize: 22)),
         shadowColor: const Color.fromARGB(255, 249, 23, 23),
       ),
-      body: Column(
-        children: <Widget>[
-          const SizedBox(
-            height: 100,
-          ),
-          Center(
-            child: Container(
-              height: 350,
-              width: 350,
-              child: QRView(
-                key: qrKey,
-                onQRViewCreated: _onQRViewCreated,
+      body: Container(
+        height: double.infinity,
+        width: double.infinity,
+        color: const Color.fromARGB(255, 171, 246, 250),
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 100,
+            ),
+            Center(
+              child: Container(
+                height: 350,
+                width: 350,
+                child: QRView(
+                  key: qrKey,
+                  onQRViewCreated: onQRViewCreated,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Center(
-              child: Text(
-            "Scan QR",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          )),
-          if (result != null)
-            Container(
-              child: Text(
-                " Your QR data: ${result!.code}",
-                style: const TextStyle(fontSize: 20),
-              ),
+            const SizedBox(
+              height: 10,
             ),
-          const SizedBox(height: 8,),
-          if (result != null)
-            const Text("Copy to Clipboard ↙",
-                style: TextStyle(fontWeight: FontWeight.bold)),
-          if (result != null)
-            InkWell(
-                onTap: () {
-                  copyToClipboard(result!.code.toString(), context);
-                },
-                child: const Icon(Icons.copy)),
-        ],
+            const Center(
+                child: Text(
+              "Scan QR",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            )),
+            if (result != null)
+              Container(
+                height: 100,
+                width: 300,
+                color: const Color.fromARGB(255, 135, 243, 255),
+                child: Center(
+                  child: Text(
+                    " Your QR data:\n${result!.code}",
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            const SizedBox(height: 8,),
+            if (result != null)
+              const Text("Copy to Clipboard ↙",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+            if (result != null)
+              InkWell(
+                  onTap: () {
+                    copyToClipboard(result!.code.toString(), context);
+                  },
+                  child: const Icon(Icons.copy)),
+          ],
+        ),
       ),
     );
   }
 
-  void _onQRViewCreated(QRViewController controller) {
+  void onQRViewCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;
     });

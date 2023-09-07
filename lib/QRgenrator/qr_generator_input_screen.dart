@@ -40,7 +40,7 @@ class QRInputScreenState extends State<QRInputScreen> {
         padding: const EdgeInsets.all(16.0),
         width: double.infinity,
         height: double.infinity,
-        // color: const Color.fromARGB(255, 171, 246, 250),
+        color: const Color.fromARGB(255, 171, 246, 250),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
