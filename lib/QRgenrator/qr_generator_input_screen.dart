@@ -69,7 +69,7 @@ class QRInputScreenState extends State<QRInputScreen> {
               height: 20,
             ),
             inputText == ""
-                ? Container(
+                ? const SizedBox(
                     height: 0,
                     width: 0,
                   )

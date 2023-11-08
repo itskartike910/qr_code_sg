@@ -56,7 +56,7 @@ class QRScannerPageState extends State<QRScannerPage> {
               height: 100,
             ),
             Center(
-              child: Container(
+              child: SizedBox(
                 height: 350,
                 width: 350,
                 child: QRView(

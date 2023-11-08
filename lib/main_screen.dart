@@ -25,15 +25,23 @@ class MainScreen extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => const QRInputScreen()))
                     .then((result) {}),
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(Colors.deepOrange),
+                      fixedSize: MaterialStatePropertyAll<Size>(Size(250,50)),
+                    ),
                 child: const Text("QR Code Generator",style: TextStyle(fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 0, 0)),),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 30),
             ElevatedButton(
               onPressed: ()=> Navigator.push(
                 context, 
                 MaterialPageRoute(
                   builder: (context) => const QRScannerPage()))
                 .then((result) {}),
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(Colors.deepOrange),
+                      fixedSize: MaterialStatePropertyAll<Size>(Size(250,50)),
+                    ),
               child: const Text("QR Code Scanner",style: TextStyle(fontWeight: FontWeight.bold,color: Color.fromARGB(255, 0, 0, 0)),)
               )
               ],
