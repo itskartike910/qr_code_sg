@@ -1,6 +1,6 @@
 # qr_code_sg
 
-A new Flutter projec.
+A new Flutter project.
 An android application which scans the qr code and make the link copied to clipboard, and a qr code gnerator which generates the qr code using input text or links.
 
 ## Getting Started
