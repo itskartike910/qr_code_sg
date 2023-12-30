@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:qr_code_sg/main_screen.dart';
 
@@ -20,22 +18,6 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home:
       MainScreen(),
-    );
-  }
-}
-
-class StartingPage extends StatelessWidget {
-  const StartingPage({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: const Icon(
-          Icons.start,
-          size: 50,
-          color: Colors.lightGreen,
-        ),
-      ),
     );
   }
 }
