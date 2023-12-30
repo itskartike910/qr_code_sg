@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_sg/QRgenrator/qr_generator_screen.dart';
 
-
 // class QRGenInputScreen extends StatelessWidget {
 //   const QRGenInputScreen({super.key});
 
@@ -33,8 +32,12 @@ class QRInputScreenState extends State<QRInputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('QR Code Generator',style: TextStyle(color: Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold , fontSize: 22)),
-        shadowColor:const Color.fromARGB(255, 249, 23, 23),
+        title: const Text('QR Code Generator',
+            style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.bold,
+                fontSize: 22)),
+        shadowColor: const Color.fromARGB(255, 249, 23, 23),
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
@@ -63,7 +66,17 @@ class QRInputScreenState extends State<QRInputScreen> {
                               inputText: inputText,
                             ))).then((result) {});
               },
-              child: const Text('Generate QR'),
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll<Color>(
+                    Color.fromARGB(255, 54, 114, 255)),
+                fixedSize: MaterialStatePropertyAll<Size>(Size(150, 40)),
+              ),
+              child: const Text(
+                'Generate QR',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 0, 0, 0)),
+              ),
             ),
             const SizedBox(
               height: 20,
