@@ -29,6 +29,7 @@ class QRCodeGenScreenState extends State<QRCodeGenScreen> {
       appBar: AppBar(
         title: const Text('QR Code Generator',style: TextStyle(color: Color.fromARGB(255, 0, 0, 0),fontWeight: FontWeight.bold , fontSize: 22)),
         shadowColor:const Color.fromARGB(255, 249, 23, 23),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Center(
         child: Container(

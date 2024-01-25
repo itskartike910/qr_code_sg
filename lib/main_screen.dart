@@ -15,6 +15,7 @@ class MainScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 22)),
         shadowColor: const Color.fromARGB(255, 249, 23, 23),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Container(
         height: double.infinity,
@@ -43,7 +44,7 @@ class MainScreen extends StatelessWidget {
               width: 360,
               height: 120,
               child: Text(
-                "Welcome to the QR code Scanner and Generator App. This app can generate QR code based on the input given, the input string may be some text or URL. This app also scans the QR code and displays the URL or text and make it copied to clipboard.",
+                "About:\nWelcome to the QR code Scanner and Generator App. This app can generate QR code based on the input given, the input string may be some text or URL. This app also scans the QR code and displays the URL or text and make it copied to clipboard.",
                 style: TextStyle(
                   color: Color.fromARGB(255, 147, 0, 0),
                   fontWeight: FontWeight.bold,

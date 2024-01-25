@@ -38,6 +38,7 @@ class QRInputScreenState extends State<QRInputScreen> {
                 fontWeight: FontWeight.bold,
                 fontSize: 22)),
         shadowColor: const Color.fromARGB(255, 249, 23, 23),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),

@@ -45,6 +45,7 @@ class QRScannerPageState extends State<QRScannerPage> {
                 fontWeight: FontWeight.bold,
                 fontSize: 22)),
         shadowColor: const Color.fromARGB(255, 249, 23, 23),
+        backgroundColor: Colors.lightBlue,
       ),
       body: Container(
         height: double.infinity,
