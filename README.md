@@ -1,6 +1,7 @@
-# QR Code Scanner and Generator
+# QR Code Scanner and Generator App
 
 An android application which scans the qr code and make the link copyable to clipboard, and a qr code gnerator which generates the qr code using input text or links.
+This app is made with flutter sdk and Dart language.
 
 ## Getting Started
 
