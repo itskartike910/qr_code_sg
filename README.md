@@ -1,7 +1,7 @@
-# qr_code_sg
+# QR Code Scanner and Generator App
 
-A new Flutter project.
-An android application which scans the qr code and make the link copied to clipboard, and a qr code gnerator which generates the qr code using input text or links.
+An android application which scans the qr code and make the link copyable to clipboard, and a qr code gnerator which generates the qr code using input text or links.
+This app is made with flutter sdk and Dart language.
 
 ## Getting Started
 
